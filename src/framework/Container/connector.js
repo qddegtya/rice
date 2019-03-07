@@ -2,7 +2,7 @@ import { createPage, createLLPageManager } from 'llpage'
 import { internal } from 'xajs'
 
 class Connector {
-  constructor (opt) {
+  constructor(opt) {
     this.ui = opt.ui
     this.llpage = createLLPageManager({
       size: opt.pageKeepAliveNum
@@ -11,7 +11,7 @@ class Connector {
   }
 
   // TODO: conflict
-  registerPlugin (name, fn) {
+  registerPlugin(name, fn) {
     this.plugins.push({
       name,
       fn
@@ -20,22 +20,22 @@ class Connector {
     return this
   }
 
-  lsPlugins () {
+  lsPlugins() {
     return this.plugins
   }
 
-  applyPlugins (page, plugins) {
+  applyPlugins(page, plugins) {
     const self = this
-    for (let prop in page) {
-      if (internal.hasOwnProp(page, prop) && /^on(\w)+/i.test(prop)) {
-        const _oriMethod = page[prop]
-        page[prop] = function _patch (...args) {
-          _oriMethod.apply(this, args)
+    const _hooks = page.hooks
+    
+    for (let prop in _hooks) {
+      const _oriMethod = _hooks[prop]
+      _hooks[prop] = function _patch(...args) {
+        _oriMethod.apply(this, args)
 
-          plugins.forEach(plugin => {
-            plugin.fn.call(this, self)
-          })
-        }
+        plugins.forEach(plugin => {
+          plugin.fn.call(this, self)
+        })
       }
     }
   }
