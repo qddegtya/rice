@@ -8,8 +8,7 @@ class Connector {
     })
     this.plugins = []
   }
-
-  // TODO: conflict
+  
   registerPlugin(name, fn) {
     this.plugins.push({
       name,
@@ -23,7 +22,7 @@ class Connector {
     return this.plugins
   }
 
-  applyPlugins(page, plugins) {
+  _applyPlugins(page) {
     const self = this
     const _hooks = page.hooks
 
@@ -32,8 +31,8 @@ class Connector {
       _hooks[prop] = function _patch(...args) {
         _oriMethod.apply(this, args)
 
-        plugins.forEach(plugin => {
-          plugin.fn.call(this, self)
+        self.plugins.forEach(plugin => {
+          plugin.fn.call(this, page)
         })
       }
     }
@@ -88,7 +87,7 @@ class Connector {
       })
     }
 
-    this.applyPlugins(_page, this.plugins)
+    this._applyPlugins(_page)
     this.llpage.open(_page)
   }
 

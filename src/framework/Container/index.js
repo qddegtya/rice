@@ -1,15 +1,16 @@
 import { Component } from 'react'
 import { core } from 'xajs'
 import Connector from './connector'
-import Hooks from './hooks'
-import { root } from '../EventBus'
+import { lifecycle } from './mixins'
 
-@core.decorators.mixin([Hooks.prototype, root])
+@core.decorators.mixin(lifecycle)
 class Container extends Component {
   constructor(props) {
     super(props)
 
-    const { pageKeepAliveNum } = this.props.framework.opt
+    const { framework } = this.props
+    const { pageKeepAliveNum } = framework.opt
+
     this.$po = new Connector({
       ui: this,
       pageKeepAliveNum

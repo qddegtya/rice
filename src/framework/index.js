@@ -1,5 +1,3 @@
-import { core } from 'xajs'
-import { root } from './EventBus'
 import Widget from './Widget'
 import Container from './Container'
 import renderSync from './__internal__/renderSync'
@@ -8,14 +6,14 @@ import * as DEFAULT_CONFIG from './__internal__/constants'
 /**
  * @example
  *
- * const portal = new Framework();
+ * const framework = new Framework();
  *
- * await portal.loadUI(UI);
- * await portal.mountWidget(ChooseMenu);
+ * await framework.loadUI(UI);
+ * await framework.mountWidget(SomeWidget);
  *
  *
  */
-@core.decorators.mixin(root)
+
 class Framework {
   constructor(opt = DEFAULT_CONFIG) {
     this.opt = opt
