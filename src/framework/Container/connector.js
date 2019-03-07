@@ -1,5 +1,4 @@
 import { createPage, createLLPageManager } from 'llpage'
-import { internal } from 'xajs'
 
 class Connector {
   constructor(opt) {
@@ -27,7 +26,7 @@ class Connector {
   applyPlugins(page, plugins) {
     const self = this
     const _hooks = page.hooks
-    
+
     for (let prop in _hooks) {
       const _oriMethod = _hooks[prop]
       _hooks[prop] = function _patch(...args) {
