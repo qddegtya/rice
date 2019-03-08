@@ -1,5 +1,5 @@
 import { createLLPageManager } from 'llpage'
-import Page from '../Page'
+import View from '../View'
 import { Component } from 'react'
 
 class LLPage extends Component {
@@ -13,8 +13,8 @@ class LLPage extends Component {
   }
 
   _ensurePageIns (page) {
-    if (!(page instanceof Page)) {
-      throw new Error('page must be instance of Rice.Page.')
+    if (!(page instanceof View)) {
+      throw new Error('page must be instance of Rice.View.')
     }
   }
 
@@ -24,17 +24,17 @@ class LLPage extends Component {
 
   $open(page) {
     this._ensurePageIns(page)
-    this.llpage.open(page.vPage)
+    this.llpage.open(page.$page)
   }
 
   $close(page) {
     this._ensurePageIns(page)
-    this.llpage.close(page.vPage)
+    this.llpage.close(page.$page)
   }
 
   $closeOthers(page) {
     this._ensurePageIns(page)
-    this.llpage.closeOthers(page.vPage)
+    this.llpage.closeOthers(page.$page)
   }
 
   $closeAll() {
@@ -43,7 +43,7 @@ class LLPage extends Component {
 
   $refresh(page) {
     this._ensurePageIns(page)
-    this.llpage.refresh(page.vPage)
+    this.llpage.refresh(page.$page)
   }
 }
 
