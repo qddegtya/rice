@@ -1,5 +1,6 @@
 import Widget from './Widget'
 import Container from './Container'
+import Page from './Page'
 import renderSync from './__internal__/renderSync'
 import * as DEFAULT_CONFIG from './__internal__/constants'
 import EventBus from './EventBus'
@@ -44,4 +45,4 @@ class Framework {
   }
 }
 
-export { Framework, Widget, Container }
+export { Framework, Widget, Container, Page }

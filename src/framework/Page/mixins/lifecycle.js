@@ -1,35 +1,35 @@
 import NotImplementedError from '../__internal__/NotImplementedError'
 
 const lifecycle = {
-  async onPageCreate(page) {
+  async onCreate(page) {
     throw new NotImplementedError('onPageCreate')
   },
 
-  async onPageStart(page) {
+  async onStart(page) {
     throw new NotImplementedError('onPageStart')
   },
 
-  async onPagePause(page) {
+  async onPause(page) {
     throw new NotImplementedError('onPagePause')
   },
 
-  async onPageDestroy(page) {
+  async onDestroy(page) {
     throw new NotImplementedError('onPageDestroy')
   },
 
-  async onPageRestart(page) {
+  async onRestart(page) {
     throw new NotImplementedError('onPageRestart')
   },
 
-  async onPageResume(page) {
+  async onResume(page) {
     throw new NotImplementedError()
   },
 
-  async onPageStop(page) {
+  async onStop(page) {
     throw new NotImplementedError()
   },
 
-  async onPageRefresh(page, isRunning) {
+  async onRefresh(page, isRunning) {
     throw new NotImplementedError()
   }
 }
