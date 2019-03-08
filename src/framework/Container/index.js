@@ -1,21 +1,13 @@
-import { Component } from 'react'
-import { core } from 'xajs'
-import Connector from './connector'
-import { lifecycle } from './mixins'
+import LLPage from './LLPage'
 
-@core.decorators.mixin(lifecycle)
-class Container extends Component {
+class Container extends LLPage {
   constructor(props) {
     super(props)
-
-    const { framework } = this.props
-    const { pageKeepAliveNum } = framework.opt
-
-    this.$po = new Connector({
-      ui: this,
-      pageKeepAliveNum
-    })
+    const { _eventBus } = this.props
+    this.$eventbus = _eventBus
   }
 }
+
+Container.isRiceContainer = true
 
 export default Container

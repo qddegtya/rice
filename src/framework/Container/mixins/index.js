@@ -1,5 +1,5 @@
-import lifecycle from './lifecycle'
+import pageLifecycle from './pageLifecycle'
 
 export {
-  lifecycle
+  pageLifecycle
 }

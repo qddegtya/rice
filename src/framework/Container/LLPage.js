@@ -1,16 +1,23 @@
 import { createPage, createLLPageManager } from 'llpage'
+import { Component } from 'react'
+import { core } from 'xajs'
+import { pageLifecycle as defaultPageLifeCycleImplement } from './mixins'
 
-class Connector {
-  constructor(opt) {
-    this.ui = opt.ui
+@core.decorators.mixin(defaultPageLifeCycleImplement)
+class LLPage extends Component {
+  constructor(props) {
+    super(props)
+
+    this.ui = this
     this.llpage = createLLPageManager({
-      size: opt.pageKeepAliveNum
+      size: this.props.pageKeepAliveNum
     })
-    this.plugins = []
+
+    this._patches = []
   }
-  
-  registerPlugin(name, fn) {
-    this.plugins.push({
+
+  patchPageLifeCycle(name, fn) {
+    this._patches.push({
       name,
       fn
     })
@@ -18,31 +25,32 @@ class Connector {
     return this
   }
 
-  lsPlugins() {
-    return this.plugins
+  lsPatches() {
+    return this._patches
   }
 
-  _applyPlugins(page) {
+  _applyPageLifeCyclePatch(page) {
     const self = this
     const _hooks = page.hooks
 
     for (let prop in _hooks) {
       const _oriMethod = _hooks[prop]
       _hooks[prop] = function _patch(...args) {
+        // ensure
         _oriMethod.apply(this, args)
 
-        self.plugins.forEach(plugin => {
-          plugin.fn.call(this, page)
+        self._patches.forEach(patch => {
+          patch.fn.call(this, prop, page)
         })
       }
     }
   }
 
-  get runningPage() {
+  get $runningPage() {
     return this.llpage.runningPage
   }
 
-  open(ctx) {
+  $open(ctx) {
     const ui = this.ui
     let _page
 
@@ -87,25 +95,25 @@ class Connector {
       })
     }
 
-    this._applyPlugins(_page)
+    this._applyPageLifeCyclePatch(_page)
     this.llpage.open(_page)
   }
 
-  close(page) {
+  $close(page) {
     this.llpage.close(page)
   }
 
-  closeOthers(page) {
+  $closeOthers(page) {
     this.llpage.closeOthers(page)
   }
 
-  closeAll() {
+  $closeAll() {
     this.llpage.closeAll()
   }
 
-  refresh(page) {
+  $refresh(page) {
     this.llpage.refresh(page)
   }
 }
 
-export default Connector
+export default LLPage

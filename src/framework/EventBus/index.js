@@ -1,8 +1,11 @@
-const ROOT_CHANNEL_NAME = 'framework_root_channel'
+class EventBus {
+  constructor (channel) {
+    this.bus = new BroadcastChannel(channel)
+  }
 
-//  TODO: pollyfill for BroadcastChannel
-const rootBc = new BroadcastChannel(ROOT_CHANNEL_NAME)
-
-export {
-  rootBc as root
+  postMessage () {
+    
+  }
 }
+
+export default EventBus

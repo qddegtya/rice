@@ -1,9 +1,15 @@
 import { Component } from 'react'
 
 class Widget extends Component {
-  get isWidget() {
-    return true
+  constructor (props) {
+    super(props)
+
+    const { _eventBus } = this.props
+
+    this.$eventbus = _eventBus
   }
 }
+
+Widget.isRiceWidget = true
 
 export default Widget
