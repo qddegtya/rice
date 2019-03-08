@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-	<img width="320" src="media/logo.png" alt="llpage">
+	<img width="320" src="media/logo.png" alt="rice">
   <br>
   <br>
   <br>

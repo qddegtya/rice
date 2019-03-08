@@ -6,9 +6,11 @@ class App extends LLPage {
     const { _eventBus } = this.props
 
     this.$eventbus = _eventBus
+  }
 
-    // TODO: ensure View
-    this.$pageFactory = View => data => new View(data, this)
+  $pageFactory (View) {
+    if (!View.isRiceView) throw new Error('View must be Rice.View')
+    return data => new View(data, this)
   }
 }
 
