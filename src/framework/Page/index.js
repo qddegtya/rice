@@ -15,6 +15,38 @@ class Page extends Component {
     this.vPage = createPage(data, this)
     this.$container = container
   }
+
+  get id () {
+    return this.vPage.id
+  }
+
+  get data () {
+    return this.vPage.data
+  }
+
+  get eliminationCount () {
+    return this.vPage.eliminationCount
+  }
+
+  get hasBeenEliminated () {
+    return this.vPage.hasBeenEliminated
+  }
+
+  get hasBeenOpened () {
+    return this.vPage.hasBeenOpened
+  }
+
+  get isDead () {
+    return this.vPage.isDead
+  }
+
+  get isEliminated () {
+    return this.vPage.isEliminated
+  }
+
+  get isRunning () {
+    return this.vPage.isRunning
+  }
 }
 
 export default Page

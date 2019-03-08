@@ -4,34 +4,34 @@ export default (data, page) =>
   createPage({
     data,
     async onCreate() {
-      await page.onCreate(this)
+      await page.onCreate(page)
     },
 
     async onStart() {
-      await page.onStart(this)
+      await page.onStart(page)
     },
 
     async onPause() {
-      await page.onPause(this)
+      await page.onPause(page)
     },
 
     async onDestroy() {
-      await page.onDestroy(this)
+      await page.onDestroy(page)
     },
 
     async onRestart() {
-      await page.onRestart(this)
+      await page.onRestart(page)
     },
 
     async onResume() {
-      await page.onResume(this)
+      await page.onResume(page)
     },
 
     async onStop() {
-      await page.onStop(this)
+      await page.onStop(page)
     },
 
     async onRefresh(isRunning) {
-      await page.onRefresh(this, isRunning)
+      await page.onRefresh(page, isRunning)
     }
   })
