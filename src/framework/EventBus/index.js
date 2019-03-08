@@ -6,6 +6,22 @@ class EventBus {
   postMessage () {
     
   }
+
+  close () {
+
+  }
+
+  onMessage () {
+    
+  }
+
+  onmessage () {
+
+  }
+
+  onmessageerror () {
+    
+  }
 }
 
 export default EventBus
