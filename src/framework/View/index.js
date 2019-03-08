@@ -5,15 +5,11 @@ import { lifecycle } from './mixins'
 
 @core.decorators.mixin(lifecycle)
 class View extends Component {
-  constructor (data, app) {
+  constructor ($app, data = {}) {
     super()
-
-    if (!app) {
-      throw new Error('View constructor must receive a Rice.App instance.')
-    }
-
+    
     this.$page = createPage(data, this)
-    this.$app = app
+    this.$app = $app
   }
 
   get id () {

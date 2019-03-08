@@ -10,7 +10,7 @@ class App extends LLPage {
 
   $pageFactory (View) {
     if (!View.isRiceView) throw new Error('View must be Rice.View')
-    return data => new View(data, this)
+    return (data, ...args) => new View(this, data, ...args)
   }
 }
 
