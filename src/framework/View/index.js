@@ -7,11 +7,12 @@ import { lifecycle } from './mixins'
 class View extends Component {
   constructor ($app, data = {}) {
     super()
-    
+
     this.$page = createPage(data, this)
     this.$app = $app
   }
 
+  // TODO: proxy?
   get id () {
     return this.$page.id
   }
