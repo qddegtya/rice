@@ -9,12 +9,13 @@ class App extends LLPage {
     this.$viewHandlers = _viewHandlers
   }
 
-  $pageFactory (View) {
+  $pageFactory(View) {
     if (!View.isRiceView) throw new Error('View must be Rice.View')
     return (data, ...args) => new View(this, data, ...args)
   }
 
   $useView(name) {
+    if (!this.$viewHandlers[name]) throw new Error('No such view handler')
     return this.$viewHandlers[name]
   }
 }

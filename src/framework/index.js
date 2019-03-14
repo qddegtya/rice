@@ -29,7 +29,7 @@ class Framework {
 
   defineView(name, handler) {
     if (this.viewHandlers[name])
-      throw new Error('view handler already exists.')
+      throw new Error('View handler already exists')
     this.viewHandlers[name] = handler
   }
 
