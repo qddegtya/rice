@@ -19,10 +19,18 @@ import EventBus from './EventBus'
 class Framework {
   constructor(opt = DEFAULT_CONFIG) {
     this.opt = opt
-    
+
     this.$eventbus = new EventBus(
       this.opt.channel || DEFAULT_CONFIG.ROOT_CHANNEL_NAME
     )
+
+    this.viewHandlers = this.opt.viewHandlers || DEFAULT_CONFIG.viewHandlers
+  }
+
+  defineView(name, handler) {
+    if (this.viewHandlers[name])
+      throw new Error('view handler already exists.')
+    this.viewHandlers[name] = handler
   }
 
   loadUI(UI, container, props, ctx = {}) {
@@ -32,6 +40,7 @@ class Framework {
         {...props}
         pageKeepAliveNum={this.opt.pageKeepAliveNum}
         _eventbus={this.$eventbus}
+        _viewHandlers={this.viewHandlers}
       />,
       container
     )
