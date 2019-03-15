@@ -10,14 +10,6 @@ class LLPage extends Component {
     this.llpage = createLLPageManager({
       size: this.props.pageKeepAliveNum
     })
-
-    // read-only $cache
-    Object.defineProperty(this, '$cache', {
-      enumerable: false,
-      writable: false,
-      configurable: true,
-      value: {}
-    })
   }
 
   _ensurePageIns (page) {
@@ -52,10 +44,6 @@ class LLPage extends Component {
   $refresh(page) {
     this._ensurePageIns(page)
     this.llpage.refresh(page.$page)
-  }
-
-  componentWillUnmount () {
-    delete this.$cache
   }
 }
 
