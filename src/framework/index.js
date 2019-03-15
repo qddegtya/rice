@@ -20,11 +20,7 @@ import { fp } from 'xajs'
 class Framework {
   constructor(opt = DEFAULT_CONFIG) {
     this.opt = opt
-
-    this.$eventbus = new EventBus(
-      this.opt.channel || DEFAULT_CONFIG.ROOT_CHANNEL_NAME
-    )
-
+    this.$eventbus = new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)
     this.viewHandlers = this.opt.viewHandlers || DEFAULT_CONFIG.viewHandlers
   }
 
@@ -40,7 +36,7 @@ class Framework {
       <App
         {...props}
         pageKeepAliveNum={this.opt.pageKeepAliveNum}
-        _eventBus={this.$eventbus}
+        _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
         _viewHandlers={this.viewHandlers}
       />,
       container
@@ -49,7 +45,10 @@ class Framework {
 
   mountWidget(Widget, container, props) {
     return renderSync(
-      <Widget {...props} _eventBus={this.$eventbus} />,
+      <Widget
+        {...props}
+        _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
+      />,
       container
     )
   }
