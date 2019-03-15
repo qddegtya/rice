@@ -4,13 +4,14 @@ import View from './View'
 import renderSync from './__internal__/renderSync'
 import * as DEFAULT_CONFIG from './__internal__/constants'
 import EventBus from './EventBus'
+import { fp } from 'xajs'
 
 /**
  * @example
  *
  * const framework = new Framework();
  *
- * await framework.loadUI(UI);
+ * await framework.loadApp(App);
  * await framework.mountWidget(SomeWidget);
  *
  *
@@ -28,27 +29,27 @@ class Framework {
   }
 
   defineView(name, handler) {
-    if (this.viewHandlers[name])
-      throw new Error('View handler already exists')
+    // high priority
     this.viewHandlers[name] = handler
   }
 
-  loadUI(UI, container, props, ctx = {}) {
+  loadApp(App, container, props, enhancers = []) {
+    if (enhancers.length > 0) App = fp.compose.apply(null, enhancers)(App)
+
     return renderSync(
-      <UI
-        ctx={ctx}
+      <App
         {...props}
         pageKeepAliveNum={this.opt.pageKeepAliveNum}
-        _eventbus={this.$eventbus}
+        _eventBus={this.$eventbus}
         _viewHandlers={this.viewHandlers}
       />,
       container
     )
   }
 
-  mountWidget(Widget, container, props, ctx = {}) {
+  mountWidget(Widget, container, props) {
     return renderSync(
-      <Widget ctx={ctx} {...props} _eventbus={this.$eventbus} />,
+      <Widget {...props} _eventBus={this.$eventbus} />,
       container
     )
   }

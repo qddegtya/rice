@@ -1,26 +1,23 @@
 class EventBus {
   constructor (channel) {
+    // TODO: BroadcastChannel pollyfill or alternative layer
     this.bus = new BroadcastChannel(channel)
   }
 
-  postMessage () {
-    
+  postMessage (...args) {
+    return this.bus.postMessage.apply(this.bus, args)
   }
 
-  close () {
-
+  close (...args) {
+    return this.bus.close.apply(this.bus, args)
   }
 
-  onMessage () {
-    
+  set onmessage (val) {
+    this.bus.onmessage = val
   }
 
-  onmessage () {
-
-  }
-
-  onmessageerror () {
-    
+  set onmessageerror (val) {
+    this.bus.onmessageerror = val
   }
 }
 

@@ -18,6 +18,11 @@ class App extends LLPage {
     if (!this.$viewHandlers[name]) throw new Error('No such view handler')
     return this.$viewHandlers[name]
   }
+
+  componentWillUnmount () {
+    super.componentWillUnmount()
+    this.$eventbus.close()
+  }
 }
 
 App.isRiceApp = true
