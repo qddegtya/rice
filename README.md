@@ -7,3 +7,5 @@
 </h1>
 
 > 🍚 Micro-frontends framework based on [llpage](https://github.com/qddegtya/llpage) & [react](https://github.com/facebook/react)
+
+> building...
