@@ -1,4 +1,7 @@
 import LLPage from './LLPage'
+import renderSync from '../__internal__/renderSync'
+import * as DEFAULT_CONFIG from '../__internal__/constants'
+import EventBus from '../EventBus'
 
 class App extends LLPage {
   constructor(props) {
@@ -22,6 +25,17 @@ class App extends LLPage {
   componentWillUnmount () {
     super.componentWillUnmount()
     this.$eventbus.close()
+  }
+
+  $mountWidget(Widget, container, props) {
+    return renderSync(
+      <Widget
+        {...props}
+        _app={this}
+        _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
+      />,
+      container
+    )
   }
 }
 

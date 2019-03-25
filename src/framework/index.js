@@ -42,16 +42,6 @@ class Framework {
       container
     )
   }
-
-  mountWidget(Widget, container, props) {
-    return renderSync(
-      <Widget
-        {...props}
-        _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
-      />,
-      container
-    )
-  }
 }
 
 export { Framework, Widget, App, View }
