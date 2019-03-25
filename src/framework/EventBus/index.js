@@ -1,3 +1,5 @@
+import nextTick from 'next-tick'
+
 class EventBus {
   constructor (channel) {
     // TODO: BroadcastChannel pollyfill or alternative layer
@@ -5,7 +7,9 @@ class EventBus {
   }
 
   postMessage (...args) {
-    return this.bus.postMessage.apply(this.bus, args)
+    nextTick(() => {
+      this.bus.postMessage.apply(this.bus, args)
+    })
   }
 
   close (...args) {
