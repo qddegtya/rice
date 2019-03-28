@@ -12,7 +12,6 @@ import { fp } from 'xajs'
  * const framework = new Framework();
  *
  * await framework.loadApp(App);
- * await framework.mountWidget(SomeWidget);
  *
  *
  */
