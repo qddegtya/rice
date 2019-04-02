@@ -1,58 +1,7 @@
 {
-  "name": "@arice/core",
-  "version": "1.0.0",
-  "description": "Micro-frontends framework based on llpage & react",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./ --fix",
-    "build": "babel src --out-dir lib",
-    "dev": "babel src --out-dir lib --watch"
-  },
-  "files": [
-    "lib",
-    "index.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qddegtya/rice.git"
-  },
-  "keywords": [
-    "micro-frontends",
-    "framework",
-    "react",
-    "llpage",
-    "iframe",
-    "sandbox",
-    "lifecycle",
-    "page"
-  ],
-  "author": "xiaoa",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/qddegtya/rice/issues"
-  },
-  "homepage": "https://github.com/qddegtya/rice#readme",
-  "dependencies": {
-    "llpage": "1.1.x",
-    "next-tick": "^1.0.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "xajs": "1.0.x"
-  },
+  "name": "root",
+  "private": true,
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/plugin-transform-runtime": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/runtime": "^7.3.4",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.15.1",
-    "eslint-plugin-react": "^7.12.4"
-  },
-  "directories": {
-    "lib": "lib"
+    "lerna": "^3.4.3"
   }
 }

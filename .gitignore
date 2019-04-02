@@ -1,2 +1,7 @@
 node_modules/
 lib/
+dist/
+
+package-lock.json
+*.log
+*.log.*
