@@ -37,6 +37,10 @@ class View extends Component {
     return this.$page.isDead
   }
 
+  get isPin () {
+    return this.$page.isPin
+  }
+
   get isEliminated () {
     return this.$page.isEliminated
   }

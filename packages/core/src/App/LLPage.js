@@ -41,6 +41,16 @@ class LLPage extends Component {
     this.llpage.closeAll()
   }
 
+  $pin(page) {
+    this._ensurePageIns(page)
+    this.llpage.pin(page.$page)
+  }
+
+  $unpin(page) {
+    this._ensurePageIns(page)
+    this.llpage.unpin(page.$page)
+  }
+
   $refresh(page) {
     this._ensurePageIns(page)
     this.llpage.refresh(page.$page)
