@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events'
 import NotImplementedError from '../__internal__/NotImplementedError'
 
-class Sandbox extends EventEmitter {
+class SandBox extends EventEmitter {
   constructor(mountNode) {
     super()
 
@@ -13,7 +13,7 @@ class Sandbox extends EventEmitter {
   }
 
   run() {
-    throw new NotImplementedError('render')
+    throw new NotImplementedError('run')
   }
 
   pause(payload = {}) {
@@ -31,7 +31,7 @@ class Sandbox extends EventEmitter {
   }
 
   rerun() {
-    throw new NotImplementedError('refresh')
+    throw new NotImplementedError('rerun')
   }
 
   destroy() {
@@ -43,4 +43,4 @@ class Sandbox extends EventEmitter {
   }
 }
 
-export default Sandbox
+export default SandBox
