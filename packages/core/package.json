@@ -1,13 +1,14 @@
 {
   "name": "@arice/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Micro-frontends framework based on llpage & react",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
     "build": "babel ./src --out-dir ./lib",
-    "dev": "babel ./src --out-dir ./lib --watch"
+    "dev": "babel ./src --out-dir ./lib --watch",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "files": [
     "lib",
