@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
+    "events": "^3.0.0",
     "llpage": "1.1.x",
     "next-tick": "^1.0.0",
     "react": "^16.8.4",

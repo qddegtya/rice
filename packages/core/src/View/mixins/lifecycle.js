@@ -1,4 +1,4 @@
-import NotImplementedError from '../__internal__/NotImplementedError'
+import NotImplementedError from '../../__internal__/NotImplementedError'
 
 const lifecycle = {
   async onCreate(page) {

@@ -1,6 +1,8 @@
 import Widget from './Widget'
 import App from './App'
 import View from './View'
+import SandBox from './SandBox'
+import * as vm from './vm'
 import renderSync from './__internal__/renderSync'
 import * as DEFAULT_CONFIG from './__internal__/constants'
 import EventBus from './EventBus'
@@ -43,4 +45,4 @@ class Framework {
   }
 }
 
-export { Framework, Widget, App, View }
+export { Framework, Widget, App, View, SandBox, vm }
