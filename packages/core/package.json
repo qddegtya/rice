@@ -8,7 +8,7 @@
     "lint": "eslint ./ --fix",
     "build": "babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "lib",
