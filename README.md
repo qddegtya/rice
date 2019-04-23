@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center" style="background-color: #000000">
   <br>
 	<img width="480" src="media/carbon.png" alt="rice">
   <br>
