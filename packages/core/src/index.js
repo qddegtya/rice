@@ -21,6 +21,7 @@ import { fp } from 'xajs'
 class Framework {
   constructor(opt = DEFAULT_CONFIG) {
     this.opt = opt
+    this.$app = null
     this.$eventbus = new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)
     this.viewHandlers = this.opt.viewHandlers || DEFAULT_CONFIG.viewHandlers
   }
@@ -36,6 +37,9 @@ class Framework {
     return renderSync(
       <App
         {...props}
+        ref={($app) => {
+          this.$app = $app
+        }}
         pageKeepAliveNum={this.opt.pageKeepAliveNum}
         _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
         _viewHandlers={this.viewHandlers}

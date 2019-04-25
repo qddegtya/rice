@@ -1,4 +1,7 @@
 import LLPage from './LLPage'
+import { Subject } from 'rxjs'
+import { internal } from 'xajs'
+import { filter } from 'rxjs/operators'
 import renderSync from '../__internal__/renderSync'
 import * as DEFAULT_CONFIG from '../__internal__/constants'
 import EventBus from '../EventBus'
@@ -10,6 +13,17 @@ class App extends LLPage {
 
     this.$eventbus = _eventBus
     this.$viewHandlers = _viewHandlers
+    this.$subject = new Subject()
+  }
+
+  $next(payload) {
+    this.$subject.next(payload)
+  }
+
+  $effect($filter) {
+    if ($filter && internal.is.isFunction($filter))
+      return this.$subject.pipe(filter($filter))
+    return this.$subject
   }
 
   $pageFactory(View) {
@@ -22,7 +36,7 @@ class App extends LLPage {
     return this.$viewHandlers[name]
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     super.componentWillUnmount()
     this.$eventbus.close()
   }
