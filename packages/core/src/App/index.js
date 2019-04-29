@@ -9,11 +9,16 @@ import EventBus from '../EventBus'
 class App extends LLPage {
   constructor(props) {
     super(props)
-    const { _eventBus, _viewHandlers } = this.props
+    const { _eventBus, _viewHandlers, _framework } = this.props
 
     this.$eventbus = _eventBus
     this.$viewHandlers = _viewHandlers
+    this._framework = _framework
     this.$subject = new Subject()
+  }
+
+  get $framework () {
+    return this._framework
   }
 
   $next(payload) {

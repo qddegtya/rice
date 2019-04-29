@@ -6,7 +6,7 @@ class LLPage extends Component {
   constructor(props) {
     super(props)
 
-    this.ui = this
+    this.$app = this
     this.llpage = createLLPageManager({
       size: this.props.pageKeepAliveNum
     })
