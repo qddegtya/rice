@@ -1,8 +1,8 @@
 import nextTick from 'next-tick'
+import BroadcastChannel from 'broadcast-channel'
 
 class EventBus {
   constructor (channel) {
-    // TODO: BroadcastChannel pollyfill or alternative layer
     this.bus = new BroadcastChannel(channel)
   }
 
