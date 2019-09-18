@@ -39,10 +39,12 @@
     "events": "^3.0.0",
     "llpage": "1.1.x",
     "next-tick": "^1.0.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
     "rxjs": "^6.5.1",
     "xajs": "1.0.x"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
