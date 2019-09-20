@@ -25,8 +25,6 @@ class Framework {
     this.$eventbus = new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)
     this.$effectCenter = new Effect()
     this.viewHandlers = this.opt.viewHandlers || DEFAULT_CONFIG.viewHandlers
-    this.$app = null
-    this.appMountNode = null
   }
 
   defineView(name, handler) {
@@ -35,15 +33,11 @@ class Framework {
   }
 
   loadApp(App, container, props, enhancers = []) {
-    if (this.$app) throw new Error('[Rice] Framework has a ref to a specific app, can not load any more apps.')
-
     if (enhancers.length > 0) App = fp.compose.apply(null, enhancers)(App)
-    this.appMountNode = container
-
+    
     return renderSync(
       <App
         {...props}
-        ref={ins => this.$app = ins}
         _framework={this}
         _effectCenter={this.$effectCenter}
         pageKeepAliveNum={this.opt.pageKeepAliveNum}

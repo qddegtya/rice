@@ -39,11 +39,11 @@ const bootstrap = ({
 
     const { mountNode = null, props = {} } = options
 
+    // setup sideEffects
+    await sideEffects(rf.$effectCenter.$effect)
+
     // load app
     await rf.loadApp(app, mountNode, props, plugins)
-    
-    // setup sideEffects
-    await sideEffects(rf.$app, rf.$effectCenter.$effect)
 
     await afterBootstrap(rf)
   } else {
