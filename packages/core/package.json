@@ -1,6 +1,6 @@
 {
   "name": "@arice/core",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Micro-frontends framework based on llpage & react",
   "main": "index.js",
   "scripts": {

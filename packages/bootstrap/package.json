@@ -1,6 +1,6 @@
 {
   "name": "@arice/bootstrap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🎩 bootstraper for rice app",
   "main": "lib/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/core": "^1.1.5",
+    "@arice/core": "^1.1.6",
     "xajs": "1.0.x"
   },
   "devDependencies": {
