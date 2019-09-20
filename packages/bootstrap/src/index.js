@@ -19,7 +19,7 @@ const bootstrap = ({
   }
 
   if (appName in apps) {
-    let { bundle: bundlePromise, options = DEFAULT_APP_OPTIONS } = apps[
+    let { bundle: bundlePromise, options = DEFAULT_APP_OPTIONS, sideEffects = NOOP } = apps[
       appName
     ]
 
@@ -38,7 +38,12 @@ const bootstrap = ({
     await beforeBootstrap(rf)
 
     const { mountNode = null, props = {} } = options
+
+    // load app
     await rf.loadApp(app, mountNode, props, plugins)
+    
+    // setup sideEffects
+    await sideEffects(rf.$app, rf.$effectCenter.$effect)
 
     await afterBootstrap(rf)
   } else {

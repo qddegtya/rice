@@ -13,6 +13,18 @@ class Widget extends Component {
   get $app () {
     return this._app
   }
+
+  $next (payload) {
+    this.$app.$next(payload)
+  }
+
+  $error (err) {
+    this.$app.$error(err)
+  }
+
+  $complete () {
+    this.$app.$complete()
+  }
 }
 
 Widget.isRiceWidget = true

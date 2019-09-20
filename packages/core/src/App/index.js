@@ -1,34 +1,33 @@
 import LLPage from './LLPage'
-import { Subject } from 'rxjs'
-import { internal } from 'xajs'
-import { filter } from 'rxjs/operators'
+import EventBus from '../EventBus'
 import renderSync from '../__internal__/renderSync'
 import * as DEFAULT_CONFIG from '../__internal__/constants'
-import EventBus from '../EventBus'
 
 class App extends LLPage {
   constructor(props) {
     super(props)
-    const { _eventBus, _viewHandlers, _framework } = this.props
+    const { _eventBus, _viewHandlers, _framework, _effectCenter } = this.props
 
     this.$eventbus = _eventBus
     this.$viewHandlers = _viewHandlers
     this._framework = _framework
-    this.$subject = new Subject()
+    this.$e = _effectCenter
+  }
+
+  $next (payload) {
+    this.$e.$next(payload)
+  }
+
+  $error (err) {
+    this.$e.$error(err)
+  }
+
+  $complete () {
+    this.$e.$complete()
   }
 
   get $framework () {
     return this._framework
-  }
-
-  $next(payload) {
-    this.$subject.next(payload)
-  }
-
-  $effect($filter) {
-    if ($filter && internal.is.isFunction($filter))
-      return this.$subject.pipe(filter($filter))
-    return this.$subject
   }
 
   $pageFactory(View) {

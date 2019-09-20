@@ -12,6 +12,18 @@ class View extends Component {
     this.$app = $app
   }
 
+  $next (payload) {
+    this.$app.$next(payload)
+  }
+
+  $error (err) {
+    this.$app.$error(err)
+  }
+
+  $complete () {
+    this.$app.$complete()
+  }
+
   // TODO: proxy?
   get id () {
     return this.$page.id
