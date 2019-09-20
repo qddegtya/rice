@@ -2,27 +2,25 @@ import { Subject } from 'rxjs'
 import { internal } from 'xajs'
 import { filter } from 'rxjs/operators'
 
-class Effect {
-  constructor () {
-    this.$subject = new Subject()
-  }
+const $subject = new Subject()
 
+class Effect {
   $next(payload) {
-    this.$subject.next(payload)
+    $subject.next(payload)
   }
 
   $error(error) {
-    this.$subject.error(error)
+    $subject.error(error)
   }
 
   $complete() {
-    this.$subject.complete()
+    $subject.complete()
   }
 
   $effect($filter) {
     if ($filter && internal.is.isFunction($filter))
-      return this.$subject.pipe(filter($filter))
-    return this.$subject
+      return $subject.pipe(filter($filter))
+    return $subject
   }
 }
 
