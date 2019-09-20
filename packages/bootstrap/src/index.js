@@ -35,12 +35,12 @@ const bootstrap = ({
       throw new Error(`Bundle of [${appName}] load failed, please check.`)
     }
 
-    await beforeBootstrap()
+    await beforeBootstrap(rf)
 
     const { mountNode = null, props = {} } = options
     await rf.loadApp(app, mountNode, props, plugins)
 
-    await afterBootstrap()
+    await afterBootstrap(rf)
   } else {
     throw new Error(`Can not find this app: ${appName}.`)
   }
