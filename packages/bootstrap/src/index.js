@@ -22,13 +22,15 @@ const bootstrap = ({
   }
 
   if (appName in apps) {
+    let currentApp = apps[appName]
+
     let {
       bundle: bundlePromise,
       options = DEFAULT_APP_OPTIONS,
       sideEffects = NOOP,
       beforeBootstrap = bb,
       afterBootstrap = ab
-    } = apps[appName]
+    } = currentApp
 
     let getBundle = () => null
 
@@ -42,7 +44,7 @@ const bootstrap = ({
       throw new Error(`Bundle of [${appName}] load failed, please check.`)
     }
 
-    await beforeBootstrap(rf)
+    await beforeBootstrap(rf, currentApp)
 
     const { mountNode = null, props = {} } = options
 
@@ -52,7 +54,7 @@ const bootstrap = ({
     // load app
     await rf.loadApp(app, mountNode, props, plugins)
 
-    await afterBootstrap(rf)
+    await afterBootstrap(rf, currentApp)
   } else {
     throw new Error(`Can not find this app: ${appName}.`)
   }
