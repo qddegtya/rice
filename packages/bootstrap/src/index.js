@@ -26,7 +26,8 @@ const bootstrap = ({
 
     let {
       bundle: bundlePromise,
-      options = DEFAULT_APP_OPTIONS,
+      mountNode = null,
+      props = {},
       sideEffects = NOOP,
       beforeBootstrap = bb,
       afterBootstrap = ab
@@ -45,9 +46,7 @@ const bootstrap = ({
     }
 
     await beforeBootstrap(rf, currentApp)
-
-    const { mountNode = null, props = {} } = options
-
+    
     // setup sideEffects
     await sideEffects(rf.$effectCenter.$effect)
 
