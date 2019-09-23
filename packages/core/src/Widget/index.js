@@ -15,6 +15,7 @@ class Widget extends Component {
     return this._app
   }
 
+  // proxy this.$e
   $next (payload) {
     this.$e.$next(payload)
   }
