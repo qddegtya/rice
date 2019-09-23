@@ -11,17 +11,24 @@ const bootstrap = ({
   afterBootstrap = NOOP
 }) => async appName => {
   const rf = new Rice.Framework(framework)
+  let bb = beforeBootstrap,
+    ab = afterBootstrap
 
   for (const k in viewEngine) {
     const ve = viewEngine[k]
-    if (!ve.isRiceView) throw new Error(`viewEngine: ${k} is not a valid rice view engine.`)
+    if (!ve.isRiceView)
+      throw new Error(`viewEngine: ${k} is not a valid rice view engine.`)
     rf.defineView(k, ve)
   }
 
   if (appName in apps) {
-    let { bundle: bundlePromise, options = DEFAULT_APP_OPTIONS, sideEffects = NOOP } = apps[
-      appName
-    ]
+    let {
+      bundle: bundlePromise,
+      options = DEFAULT_APP_OPTIONS,
+      sideEffects = NOOP,
+      beforeBootstrap = bb,
+      afterBootstrap = ab
+    } = apps[appName]
 
     let getBundle = () => null
 
