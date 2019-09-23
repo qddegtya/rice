@@ -1,6 +1,6 @@
 import Rice from '@arice/core'
 import { internal } from 'xajs'
-import { NOOP, DEFAULT_APP_OPTIONS } from './constants'
+import { NOOP } from './constants'
 
 const bootstrap = ({
   framework = {},
@@ -46,7 +46,7 @@ const bootstrap = ({
     }
 
     await beforeBootstrap(rf, currentApp)
-    
+
     // setup sideEffects
     await sideEffects(rf.$effectCenter.$effect)
 
