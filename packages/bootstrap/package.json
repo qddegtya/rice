@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/core": "^1.1.9",
+    "@arice/core": "1.1.x",
     "xajs": "1.0.x"
   },
   "devDependencies": {
