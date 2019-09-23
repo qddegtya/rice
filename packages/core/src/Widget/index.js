@@ -4,9 +4,10 @@ class Widget extends Component {
   constructor (props) {
     super(props)
 
-    const { _eventBus, _app } = this.props
+    const { _eventBus, _app, _effectCenter } = this.props
 
     this.$eventbus = _eventBus
+    this.$e = _effectCenter
     this._app = _app
   }
 
@@ -15,15 +16,15 @@ class Widget extends Component {
   }
 
   $next (payload) {
-    this.$app.$next(payload)
+    this.$e.$next(payload)
   }
 
   $error (err) {
-    this.$app.$error(err)
+    this.$e.$error(err)
   }
 
   $complete () {
-    this.$app.$complete()
+    this.$e.$complete()
   }
 }
 

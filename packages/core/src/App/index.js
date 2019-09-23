@@ -51,6 +51,7 @@ class App extends LLPage {
         {...props}
         _app={this}
         _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
+        _effectCenter={this.$e}
       />,
       container
     )
