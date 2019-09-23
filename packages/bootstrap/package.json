@@ -1,6 +1,6 @@
 {
   "name": "@arice/bootstrap",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "🎩 bootstraper for rice app",
   "main": "lib/index.js",
   "scripts": {
