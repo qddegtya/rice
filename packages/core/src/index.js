@@ -1,18 +1,15 @@
+import { xajs, renderSync } from '@arice/util'
 import Widget from './Widget'
 import App from './App'
-import View from './View'
-import SandBox from './SandBox'
-import * as vm from './vm'
-import renderSync from './__internal__/renderSync'
-import * as DEFAULT_CONFIG from './__internal__/constants'
 import EventBus from './EventBus'
 import Effect from './Effect'
-import { fp } from 'xajs'
+
+const { fp } = xajs
 
 /**
  * @example
  *
- * const framework = new Framework();
+ * const framework = new Framework({});
  *
  * await framework.loadApp(App);
  *
@@ -20,16 +17,12 @@ import { fp } from 'xajs'
  */
 
 class Framework {
-  constructor(opt = DEFAULT_CONFIG) {
+  constructor(opt = {}) {
+    // TODO
     this.opt = opt
-    this.$eventbus = new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)
-    this.$effectCenter = new Effect()
-    this.viewHandlers = this.opt.viewHandlers || DEFAULT_CONFIG.viewHandlers
-  }
-
-  defineView(name, handler) {
-    // high priority
-    this.viewHandlers[name] = handler
+    
+    this.$eventbus = new EventBus()
+    this.$effect = new Effect()
   }
 
   loadApp(App, container, props, enhancers = []) {
@@ -39,14 +32,12 @@ class Framework {
       <App
         {...props}
         _framework={this}
-        _effectCenter={this.$effectCenter}
-        pageKeepAliveNum={this.opt.pageKeepAliveNum}
-        _eventBus={new EventBus(DEFAULT_CONFIG.ROOT_CHANNEL_NAME)}
-        _viewHandlers={this.viewHandlers}
+        _effect={this.$effect}
+        _eventBus={new EventBus()}
       />,
       container
     )
   }
 }
 
-export { Framework, Widget, App, View, SandBox, vm }
+export { Framework, Widget, App }

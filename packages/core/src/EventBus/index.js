@@ -1,8 +1,10 @@
 import nextTick from 'next-tick'
 import BroadcastChannel from 'broadcast-channel'
 
+const ROOT_CHANNEL_NAME = 'rice:eventbus'
+
 class EventBus {
-  constructor (channel) {
+  constructor (channel = ROOT_CHANNEL_NAME) {
     this.bus = new BroadcastChannel(channel)
   }
 

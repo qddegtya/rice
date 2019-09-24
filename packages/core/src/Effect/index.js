@@ -1,7 +1,8 @@
 import { Subject } from 'rxjs'
-import { internal } from 'xajs'
+import { xajs } from '@arice/util'
 import { filter } from 'rxjs/operators'
 
+const { internal } = xajs
 const $subject = new Subject()
 
 class Effect {

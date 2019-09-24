@@ -1,30 +1,15 @@
-import { Component } from 'react'
-import { core } from 'xajs'
+import { xajs } from '@arice/util'
 import createPage from './createPage'
 import { lifecycle } from './mixins'
 
+const { core } = xajs
+
 @core.decorators.mixin(lifecycle)
-class View extends Component {
-  constructor ($app, data = {}) {
-    super()
-
+class XView {
+  constructor (data = {}) {
     this.$page = createPage(data, this)
-    this.$app = $app
   }
 
-  $next (payload) {
-    this.$app.$next(payload)
-  }
-
-  $error (err) {
-    this.$app.$error(err)
-  }
-
-  $complete () {
-    this.$app.$complete()
-  }
-
-  // TODO: proxy?
   get id () {
     return this.$page.id
   }
@@ -62,6 +47,6 @@ class View extends Component {
   }
 }
 
-View.isRiceView = true
+View.isXView = true
 
-export default View
+export default XView

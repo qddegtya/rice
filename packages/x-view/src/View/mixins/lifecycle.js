@@ -1,4 +1,4 @@
-import NotImplementedError from '../../__internal__/NotImplementedError'
+import { NotImplementedError } from '@arice/util'
 
 const lifecycle = {
   async onCreate(page) {

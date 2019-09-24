@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
-    "build": "babel ./src --out-dir ./lib",
+    "build": "rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
   },
@@ -39,12 +39,10 @@
     "events": "^3.0.0",
     "llpage": "1.1.x",
     "next-tick": "^1.0.0",
-    "rxjs": "^6.5.1",
-    "xajs": "1.0.x"
+    "rxjs": "^6.5.1"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
+    "react": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -56,7 +54,8 @@
     "@babel/runtime": "^7.3.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.12.4",
+    "rimraf": "^3.0.0"
   },
   "directories": {
     "lib": "lib"

@@ -4,10 +4,10 @@ class Widget extends Component {
   constructor (props) {
     super(props)
 
-    const { _eventBus, _app, _effectCenter } = this.props
+    const { _eventBus, _app, _effect } = this.props
 
     this.$eventbus = _eventBus
-    this.$e = _effectCenter
+    this.$effect = _effect
     this._app = _app
   }
 
@@ -17,15 +17,20 @@ class Widget extends Component {
 
   // proxy this.$e
   $next (payload) {
-    this.$e.$next(payload)
+    this.$effect.$next(payload)
   }
 
   $error (err) {
-    this.$e.$error(err)
+    this.$effect.$error(err)
   }
 
   $complete () {
-    this.$e.$complete()
+    this.$effect.$complete()
+  }
+
+  componentWillUnmount() {
+    super.componentWillUnmount()
+    this.$eventbus.close()
   }
 }
 

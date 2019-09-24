@@ -1,20 +1,20 @@
 import { createLLPageManager } from 'llpage'
+import { message } from '@arice/util'
 import View from '../View'
-import { Component } from 'react'
+import { DEFAULT_SIZE } from '../constants'
 
-class LLPage extends Component {
-  constructor(props) {
-    super(props)
+const msg = message('@arice/x-view')
 
-    this.$app = this
+class LLPage {
+  constructor({ size = DEFAULT_SIZE }) {
     this.llpage = createLLPageManager({
-      size: this.props.pageKeepAliveNum
+      size
     })
   }
 
   _ensurePageIns (page) {
     if (!(page instanceof View)) {
-      throw new Error('page must be instance of Rice.View.')
+      throw new Error(msg('page must be instance of XView.'))
     }
   }
 

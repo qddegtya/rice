@@ -1,15 +1,17 @@
 import { EventEmitter } from 'events'
-import NotImplementedError from '../__internal__/NotImplementedError'
+import { NotImplementedError, message } from '@arice/util'
+
+const msg = message('@arice/x-sandbox')
 
 class SandBox extends EventEmitter {
-  constructor(mountNode) {
+  constructor(container) {
     super()
 
-    if (!(mountNode instanceof Element)) {
-      throw new Error('sandbox must receive a valid mount node.')
+    if (!(container instanceof Element)) {
+      throw new Error(msg('x-sandbox must receive a valid mount dom node.'))
     }
 
-    this.mountNode = mountNode
+    this.container = container
   }
 
   run() {
