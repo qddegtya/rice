@@ -1,6 +1,6 @@
 {
   "name": "@arice/vm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "vm for rice",
   "main": "lib/index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "@arice/util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "util for rice",
   "main": "lib/index.js",
   "scripts": {
