@@ -10,12 +10,12 @@ class XViewController extends LLPage {
     super(size)
   }
 
-  createPage(View) {
+  $pageFactory(View) {
     if (!View.isXView) throw new Error(msg('View must be XView'))
-    return (data, ...args) => new View(this, data, ...args)
+    return (data, ...args) => new View(data, ...args)
   }
 
-  useViewEngine(name) {
+  $useView(name) {
     if (!viewEngineStore[name]) throw new Error(msg('No such view engine'))
     return viewEngineStore[name]
   }

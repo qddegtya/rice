@@ -47,6 +47,6 @@ class XView {
   }
 }
 
-View.isXView = true
+XView.isXView = true
 
 export default XView
