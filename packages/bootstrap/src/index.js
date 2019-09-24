@@ -1,6 +1,8 @@
 import Rice from '@arice/core'
-import { internal } from '@arice/util'
+import { xajs } from '@arice/util'
 import { NOOP } from './constants'
+
+const { internal } = xajs
 
 const bootstrap = ({
   framework = {},
