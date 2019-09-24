@@ -42,7 +42,7 @@ const bootstrap = ({
     await beforeBootstrap(rf, currentApp)
 
     // setup sideEffects
-    await sideEffects(rf.$effectCenter.$effect)
+    await sideEffects(rf.$effect.$effect)
 
     // load app
     await rf.loadApp(app, container, props, plugins)
