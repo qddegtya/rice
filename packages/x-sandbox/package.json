@@ -1,6 +1,6 @@
 {
   "name": "@arice/x-sandbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🚀 rice x-sandbox engine",
   "main": "lib/index.js",
   "scripts": {
@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "events": "^3.0.0",
-    "@arice/util": "1.0.x"
+    "@arice/util": "^1.0.1",
+    "events": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
