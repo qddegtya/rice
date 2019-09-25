@@ -14,9 +14,9 @@
   - [Motivation](./docs/motivation.md)
   - [Principle](./docs/principle.md)
 
-# Quick Start
+# 🍩 🎉 😊 Let's eat some food
 
-> 🍩 Let's eat some food
+## Runtime Core
 
 ### Define App component
 
@@ -72,7 +72,7 @@ export default ({ $, inject }) => {
 };
 ```
 
-### start
+### Start
 
 ```javascript
 import Rice from "@arice/core";
