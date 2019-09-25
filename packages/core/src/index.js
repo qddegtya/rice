@@ -1,5 +1,6 @@
 import { render } from '@arice/platform-react'
 import Eva, { createEffects } from '@arice/eva'
+import { provide } from '@arice/di'
 
 const Rice = () => {
   let $ = document.querySelector
@@ -18,7 +19,9 @@ const Rice = () => {
 
 export const connect = ({ effects }) => App => props => {
   const { dispatch } = Eva(createEffects(effects))
-  return <App dispatch={dispatch} {...props} />
+  const $provide = singleton => provide(`@component/${App.name}`)(singleton)
+
+  return <App dispatch={dispatch} provide={$provide} {...props} />
 }
 
 export default Rice

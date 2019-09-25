@@ -33,12 +33,16 @@ export const provide = alias => Clz => {
   return Clz
 }
 
-export const inject = (alias, ...args) => (target, property) => {
+export const injectFactory = (singleton = true) => (alias, ...args) => (target, property) => {
   Object.defineProperty(target, property, {
     get () {
       const _name = alias ? alias : property
       const Clz = dep.get(_name)
-      return new Clz(...args)
+
+      return singleton ? new Clz(...args) : Clz
     }
   })
 }
+
+export const inject = injectFactory()
+inject.singleton = injectFactory(true)
