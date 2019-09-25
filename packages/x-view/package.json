@@ -1,7 +1,7 @@
 {
   "name": "@arice/x-view",
   "version": "1.0.3",
-  "description": "🚀 rice x-view engine",
+  "description": "🚀 x-view engine",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,7 +1,7 @@
 {
   "name": "@arice/platform-react",
   "version": "1.0.0",
-  "description": "platform-react for Rice",
+  "description": "platform-react for rice",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,7 +1,7 @@
 {
   "name": "@arice/x-sandbox",
   "version": "1.0.3",
-  "description": "🚀 rice x-sandbox engine",
+  "description": "🚀 x-sandbox engine",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
