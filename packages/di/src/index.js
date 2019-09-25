@@ -22,7 +22,7 @@ const Dep = () => {
   }
 }
 
-const dep = Dep();
+const dep = Dep()
 
 const uncapitalize = ([first, ...rest]) => {
   return [ first.toLowerCase(), rest.join('') ].join('')

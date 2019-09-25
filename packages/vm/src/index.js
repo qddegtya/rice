@@ -1,10 +1,9 @@
 const isConstructor = fn => !!fn.prototype && !!fn.prototype.constructor.name
 
 const createFunction = code => {
-  code = `with(context) { ${code}
-}`
+  code = `with(context) { ${code} }`
   // eslint-disable-next-line
-  return new Function("context", code);
+  return new Function("context", code)
 }
 
 export class Script {
@@ -24,7 +23,7 @@ export function createContext(sandbox) {
     },
     get(target, key, receiver) {
       if (key === Symbol.unscopables) {
-        return undefined
+        return void 0
       }
 
       if (key in sandbox) {
@@ -43,7 +42,7 @@ export function createContext(sandbox) {
         return Reflect.get(window, key, window)
       }
 
-      return undefined;
+      return void 0
     }
   })
 }
