@@ -2,7 +2,7 @@ import { Subject } from 'rxjs'
 import { filter } from 'rxjs/operators'
 import { inject } from '@arice/di'
 
-const isFn = val => typeof val === "function"
+const isFn = val => typeof val === 'function'
 
 const Eva = ({ effects, autoRun = true }) => {
   let observables = {}

@@ -82,7 +82,6 @@ export default ({ $, inject }) => {
 
 ```javascript
 import Rice from "@arice/core";
-import XView from '@arice/x-view'
 import App from "./App.jsx";
 
 const app = Rice();
