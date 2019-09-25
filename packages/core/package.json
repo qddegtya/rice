@@ -1,8 +1,8 @@
 {
   "name": "@arice/core",
-  "version": "1.2.2",
-  "description": "Micro-frontends framework based on llpage & react",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "📦 out-of-box micro-frontends solution",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
@@ -34,16 +34,7 @@
     "url": "https://github.com/qddegtya/rice/issues"
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
-  "dependencies": {
-    "broadcast-channel": "^2.1.12",
-    "events": "^3.0.0",
-    "llpage": "1.1.x",
-    "next-tick": "^1.0.0",
-    "rxjs": "^6.5.1"
-  },
-  "peerDependencies": {
-    "react": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
@@ -59,6 +50,5 @@
   },
   "directories": {
     "lib": "lib"
-  },
-  "gitHead": "a2a428689269bdfa28d1b409fb0caea318eb131c"
+  }
 }

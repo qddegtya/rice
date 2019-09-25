@@ -1,7 +1,7 @@
 {
-  "name": "@arice/bootstrap",
-  "version": "1.1.4",
-  "description": "🎩 bootstraper for rice app",
+  "name": "@arice/eva",
+  "version": "1.0.0",
+  "description": "eva for rice",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,8 +11,7 @@
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "lib",
-    "index.js"
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -35,23 +34,22 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/core": "^1.2.2",
-    "@arice/util": "^1.0.3"
+    "rxjs": "^6.5.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/runtime": "^7.3.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react": "^7.12.4",
     "rimraf": "^3.0.0"
   },
   "directories": {
     "lib": "lib"
-  },
-  "gitHead": "a2a428689269bdfa28d1b409fb0caea318eb131c"
+  }
 }

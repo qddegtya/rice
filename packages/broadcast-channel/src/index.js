@@ -3,7 +3,7 @@ import BroadcastChannel from 'broadcast-channel'
 
 const ROOT_CHANNEL_NAME = 'rice:eventbus'
 
-class EventBus {
+class Bc {
   constructor (channel = ROOT_CHANNEL_NAME) {
     this.bus = new BroadcastChannel(channel)
   }
@@ -27,4 +27,4 @@ class EventBus {
   }
 }
 
-export default EventBus
+export default Bc

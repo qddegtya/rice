@@ -1,7 +1,7 @@
 {
-  "name": "@arice/util",
-  "version": "1.0.3",
-  "description": "util for rice",
+  "name": "@arice/platform-react",
+  "version": "1.0.0",
+  "description": "platform-react for Rice",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,6 +35,9 @@
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
     "xajs": "^1.0.9"
+  },
+  "peerDependencies": {
+    "react-dom": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

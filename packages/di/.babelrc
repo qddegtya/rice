@@ -1,0 +1,18 @@
+{
+  "presets": [["@babel/preset-env", { "loose": false }]],
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "useESModules": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
+  ]
+}

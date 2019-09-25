@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-> 🍚 Micro-frontends framework based on [llpage](https://github.com/qddegtya/llpage)
+> 📦 out-of-box micro-frontends solution
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
