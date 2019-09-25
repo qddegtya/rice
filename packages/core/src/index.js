@@ -3,16 +3,15 @@ import Eva, { createEffects } from '@arice/eva'
 import { provide } from '@arice/di'
 
 const Rice = () => {
-  let $ = document.querySelector
-  let $App = null
+  let App = null
 
   return {
-    load(App) {
-      $App = App
+    load(Clz) {
+      App = Clz
     },
 
-    start(selector) {
-      return render($App, $(selector))
+    async start(selector) {
+      await render(<App />, document.querySelector(selector))
     },
 
     module(name, Clz) {
@@ -22,8 +21,8 @@ const Rice = () => {
 }
 
 export const connect = ({ effects }) => Component => props => {
-  const { dispatch } = Eva(createEffects(effects))
-  const $provide = singleton => provide(`@component/${Component.name}`)(singleton)
+  const { dispatch } = Eva({ effects: createEffects(effects)})
+  const $provide = namespace => singleton => provide(`@component/${namespace}`)(singleton)
 
   return <Component dispatch={dispatch} provide={$provide} {...props} />
 }

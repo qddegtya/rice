@@ -24,24 +24,18 @@ const Dep = () => {
 
 const dep = Dep()
 
-const uncapitalize = ([first, ...rest]) => {
-  return [ first.toLowerCase(), rest.join('') ].join('')
-}
+export const provide = (namespace = '') => Clz => {
+  if (!namespace) throw new Error('[@arice/di]: provide need a namespace.')
 
-export const provide = alias => Clz => {
-  dep.set(alias ? alias : uncapitalize(Clz.name), Clz)
+  dep.set(namespace, Clz)
   return Clz
 }
 
-export const injectFactory = (singleton = true) => (alias, ...args) => (target, property) => {
-  Object.defineProperty(target, property, {
-    get () {
-      const _name = alias ? alias : property
-      const Clz = dep.get(_name)
+export const injectFactory = (singleton = false) => (namespace = '', ...args) => {
+  if (!namespace) throw new Error('[@arice/di]: inject need a namespace.')
 
-      return singleton ? new Clz(...args) : Clz
-    }
-  })
+  const Clz = dep.get(namespace)
+  return singleton ? Clz : new Clz(...args)
 }
 
 export const inject = injectFactory()

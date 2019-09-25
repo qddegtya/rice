@@ -34,7 +34,11 @@
     "url": "https://github.com/qddegtya/rice/issues"
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@arice/di": "^1.0.0",
+    "@arice/eva": "^1.0.0",
+    "@arice/platform-react": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",

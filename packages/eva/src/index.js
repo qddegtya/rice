@@ -18,7 +18,19 @@ const Eva = ({ effects, autoRun = true }) => {
         }
         return observables[type]
       },
-      inject: inject.singleton
+      inject: (injectMap) => {
+        for (let k in injectMap) {
+          const mod = injectMap[k]
+
+          Object.defineProperty(injectMap, k, {
+            get () {
+              return inject.singleton(mod)
+            }
+          })
+        }
+
+        return injectMap
+      }
     })
   }
 
