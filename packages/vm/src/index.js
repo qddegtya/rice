@@ -1,23 +1,3 @@
-const windowPropertyHash = (() => {
-  const iframe = document.createElement('iframe')
-  iframe.style.display = 'none'
-  document.body.appendChild(iframe)
-  const windowPropertyHash = {}
-  const loop = target => {
-    const prototype = Object.getPrototypeOf(target)
-    if (prototype) {
-      loop(prototype)
-    }
-    const names = Object.getOwnPropertyNames(target)
-    names.forEach(name => {
-      windowPropertyHash[name] = true
-    })
-  }
-  loop(iframe.contentWindow)
-  document.body.removeChild(iframe)
-
-  return windowPropertyHash
-})()
 const isConstructor = fn => !!fn.prototype && !!fn.prototype.constructor.name
 
 const createFunction = code => {
@@ -55,7 +35,7 @@ export function createContext(sandbox) {
         return receiver
       }
 
-      if (key in windowPropertyHash) {
+      if (key in window) {
         if (typeof window[key] === 'function' && !isConstructor(window[key])) {
           return window[key].bind(window)
         }
@@ -63,7 +43,7 @@ export function createContext(sandbox) {
         return Reflect.get(window, key, window)
       }
 
-      return Reflect.get(target, key, receiver)
+      return undefined;
     }
   })
 }
