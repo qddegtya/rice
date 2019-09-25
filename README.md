@@ -13,12 +13,15 @@
 - Full Documentation
   - [Motivation](./docs/motivation.md)
   - [Principle](./docs/principle.md)
+  - [Runtime Core](./docs/runtime-core.md)
+  - [x-view](./docs/x-view.md)
+  - [x-sandbox](./docs/sandbox.md)
 
-# 🍩 🎉 😊 Let's eat some food
+> 🍩 🎉 😊 Let's eat some food
 
-## Runtime Core
+### Runtime Core
 
-### Define App component
+#### Define App component
 
 ```javascript
 import { connect } from "@arice/core";
@@ -38,7 +41,7 @@ function App({ dispatch, provide }) {
 export default connect({ effects })(App);
 ```
 
-### Define UserInfo component
+#### Define UserInfo component
 
 ```javascript
 import { connect } from "@arice/core";
@@ -57,7 +60,7 @@ function UserInfo({ dispatch, provide }) {
 export default connect({ effects })(UserInfo);
 ```
 
-### Add effects
+#### Add effects
 
 ```javascript
 // effects.js
@@ -75,7 +78,7 @@ export default ({ $, inject }) => {
 };
 ```
 
-### Start
+#### Start
 
 ```javascript
 import Rice from "@arice/core";
