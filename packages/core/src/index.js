@@ -12,10 +12,6 @@ const Rice = () => {
 
     async start(selector) {
       await render(<App />, document.querySelector(selector))
-    },
-
-    module(name, Clz) {
-      provide(`@module/${name}`)(Clz)
     }
   }
 }

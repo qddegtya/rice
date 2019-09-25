@@ -26,7 +26,7 @@ import UserInfo from "./UserInfo";
 import effects from "./effects";
 
 function App({ dispatch, provide }) {
-  provide({
+  provide('App')({
     greet: name => {
       alert(`hello, ${name}`);
     }
@@ -45,7 +45,7 @@ import { connect } from "@arice/core";
 import effects from "./effects";
 
 function UserInfo({ dispatch, provide }) {
-  provide({
+  provide('UserInfo')({
     setTitle: title => {
       document.title = title;
     }
@@ -63,17 +63,14 @@ export default connect({ effects })(UserInfo);
 // effects.js
 export default ({ $, inject }) => {
   // use component
-  const app = inject("@component/App");
-  const userInfo = inject("@component/UserInfo");
-
-  // use module
-  const xView = inject('@module/xView');
+  const components = inject({
+    'app': '@component/App',
+    'userInfo': '@component/UserInfo'
+  })
 
   $("greet").subscribe(name => {
-    app.greet(name);
-    userInfo.setTitle(name);
-
-    xView.$open();
+    components.app.greet(name);
+    components.userInfo.setTitle(name);
   });
 };
 ```
@@ -87,7 +84,6 @@ import App from "./App.jsx";
 
 const app = Rice();
 
-app.module('xView', XView);
 app.load(() => <App />);
 
 app.start("#container");

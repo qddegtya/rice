@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/di": "^1.0.0",
-    "@arice/eva": "^1.0.0",
+    "@arice/di": "^1.0.2",
+    "@arice/eva": "^1.0.1",
     "@arice/platform-react": "^1.0.0"
   },
   "devDependencies": {

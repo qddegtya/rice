@@ -1,6 +1,6 @@
 {
   "name": "@arice/eva",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Eva for rice",
   "main": "lib/index.js",
   "scripts": {
