@@ -13,15 +13,19 @@ const Rice = () => {
 
     start(selector) {
       return render($App, $(selector))
+    },
+
+    module(name, Clz) {
+      provide(`@module/${name}`)(Clz)
     }
   }
 }
 
-export const connect = ({ effects }) => App => props => {
+export const connect = ({ effects }) => Component => props => {
   const { dispatch } = Eva(createEffects(effects))
-  const $provide = singleton => provide(`@component/${App.name}`)(singleton)
+  const $provide = singleton => provide(`@component/${Component.name}`)(singleton)
 
-  return <App dispatch={dispatch} provide={$provide} {...props} />
+  return <Component dispatch={dispatch} provide={$provide} {...props} />
 }
 
 export default Rice

@@ -28,7 +28,7 @@ import effects from "./effects";
 function App({ dispatch, provide }) {
   provide({
     greet: name => {
-      alert(`hello, ${greet}`);
+      alert(`hello, ${name}`);
     }
   });
 
@@ -62,12 +62,18 @@ export default connect({ effects })(UserInfo);
 ```javascript
 // effects.js
 export default ({ $, inject }) => {
+  // use component
   const app = inject("@component/App");
   const userInfo = inject("@component/UserInfo");
+
+  // use module
+  const xView = inject('@module/xView');
 
   $("greet").subscribe(name => {
     app.greet(name);
     userInfo.setTitle(name);
+
+    xView.$open();
   });
 };
 ```
@@ -76,10 +82,12 @@ export default ({ $, inject }) => {
 
 ```javascript
 import Rice from "@arice/core";
+import XView from '@arice/x-view'
 import App from "./App.jsx";
 
 const app = Rice();
 
+app.module('xView', XView);
 app.load(() => <App />);
 
 app.start("#container");
