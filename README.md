@@ -6,6 +6,8 @@
   <br>
 </h1>
 
+# About
+
 > 📦 out-of-box micro-frontends solution
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
@@ -17,65 +19,82 @@
   - [x-view](./docs/x-view.md)
   - [x-sandbox](./docs/sandbox.md)
 
+# Introduction
+
 > 🍩 🎉 😊 Let's eat some food
 
 ### Runtime Core
 
-#### Define App component
+#### Define App component width "sidecar"
 
 ```javascript
+// index.js
 import { connect } from "@arice/core";
 import UserInfo from "./UserInfo";
 import effects from "./effects";
 
 function App({ dispatch, provide }) {
   provide('App')({
-    greet: name => {
-      alert(`hello, ${name}`);
+    openPage: page => {
+      openPage(page)
     }
   });
 
-  return <UserInfo onLogin={name => dispatch("greet", name)} />;
+  return <Layout>
+    <UserInfo />
+    <Footer onClick={() => dispatch('logout')}></Footer>
+  </Layout>;
 }
 
 export default connect({ effects })(App);
+
+// effects.js
+export default ({ $, inject }) => {
+  const service = inject({
+    'userInfo': '@component/UserInfo'
+  });
+
+  $('logout').subscribe(() => {
+    service.userInfo.logout();
+  });
+})
 ```
 
-#### Define UserInfo component
+#### Define UserInfo component width "sidecar"
 
 ```javascript
+// index.js
+import { useState } from 'react';
 import { connect } from "@arice/core";
 import effects from "./effects";
 
 function UserInfo({ dispatch, provide }) {
+  const [user, setUser] = useState('');
+
   provide('UserInfo')({
-    setTitle: title => {
-      document.title = title;
+    logout: () => {
+      logoutService.call();
     }
   });
 
-  return <UserInfoCom />;
+  return <div/>
+    <span>{user}<span>
+    <Link onClick={url => dispatch('openPage', url)} title="open user detail page" />
+  </Link>;
 }
 
 export default connect({ effects })(UserInfo);
-```
 
-#### Add effects
-
-```javascript
 // effects.js
 export default ({ $, inject }) => {
-  // use component
-  const components = inject({
-    'app': '@component/App',
-    'userInfo': '@component/UserInfo'
-  })
-
-  $("greet").subscribe(name => {
-    components.app.greet(name);
-    components.userInfo.setTitle(name);
+  const service = inject({
+    'app': '@component/app'
   });
-};
+
+  $('logout').subscribe(() => {
+    service.app.openPage();
+  });
+})
 ```
 
 #### Start
