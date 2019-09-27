@@ -1,6 +1,6 @@
 {
   "name": "@arice/util",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "util for rice",
   "main": "lib/index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
+    "@arice/platform-react": "^1.0.1",
     "xajs": "^1.0.9"
   },
   "devDependencies": {
