@@ -1,6 +1,6 @@
 {
   "name": "@arice/broadcast-channel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BroadcastChannel component for rice",
   "main": "lib/index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "@arice/di",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple di for rice",
   "main": "lib/index.js",
   "scripts": {
@@ -33,7 +33,6 @@
     "url": "https://github.com/qddegtya/rice/issues"
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
