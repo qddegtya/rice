@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/platform-react": "^1.0.1",
     "xajs": "^1.0.9"
   },
   "devDependencies": {
