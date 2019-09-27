@@ -1,7 +1,7 @@
 const isConstructor = fn => !!fn.prototype && !!fn.prototype.constructor.name
 
 const createFunction = code => {
-  code = `with(context) { ${code} }`
+  code = `with(context) { ${code} \n }`
   // eslint-disable-next-line
   return new Function("context", code)
 }
