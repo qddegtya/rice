@@ -25,7 +25,7 @@
 
 ### Runtime Core
 
-#### Define App component width "sidecar"
+#### Define App component with "sidecar"
 
 ```javascript
 // index.js
@@ -60,7 +60,7 @@ export default ({ $, inject }) => {
 })
 ```
 
-#### Define UserInfo component width "sidecar"
+#### Define UserInfo component with "sidecar"
 
 ```javascript
 // index.js
