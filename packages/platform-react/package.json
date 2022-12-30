@@ -1,6 +1,6 @@
 {
   "name": "@arice/platform-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "platform-react for rice",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "lib"

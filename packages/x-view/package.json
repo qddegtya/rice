@@ -1,6 +1,6 @@
 {
   "name": "@arice/x-view",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "🚀 x-view engine",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "lib"
@@ -34,7 +37,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/util": "^2.0.2",
+    "@arice/util": "^2.0.3",
     "llpage": "^1.1.5"
   },
   "devDependencies": {

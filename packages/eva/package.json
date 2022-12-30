@@ -1,6 +1,6 @@
 {
   "name": "@arice/eva",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Eva for rice",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "lib"
