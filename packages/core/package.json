@@ -1,12 +1,12 @@
 {
   "name": "@arice/core",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "📦 out-of-box micro-frontends solution",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
-    "build": "rimraf ./lib && babel ./src --out-dir ./lib",
+    "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
   },
@@ -35,9 +35,9 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/di": "^1.0.3",
-    "@arice/eva": "^1.0.2",
-    "@arice/platform-react": "^1.0.1"
+    "@arice/di": "^1.0.4",
+    "@arice/eva": "^1.0.3",
+    "@arice/platform-react": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

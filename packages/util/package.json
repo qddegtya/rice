@@ -1,12 +1,12 @@
 {
   "name": "@arice/util",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "util for rice",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
-    "build": "rimraf ./lib && babel ./src --out-dir ./lib",
+    "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
   },
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/qddegtya/rice#readme",
   "dependencies": {
-    "@arice/platform-react": "^1.0.1",
+    "@arice/platform-react": "^1.0.2",
     "xajs": "^1.0.9"
   },
   "devDependencies": {

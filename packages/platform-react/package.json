@@ -1,12 +1,12 @@
 {
   "name": "@arice/platform-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "platform-react for rice",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ --fix",
-    "build": "rimraf ./lib && babel ./src --out-dir ./lib",
+    "build": "./node_modules/.bin/rimraf ./lib && babel ./src --out-dir ./lib",
     "dev": "babel ./src --out-dir ./lib --watch",
     "prepublishOnly": "npm run build"
   },
